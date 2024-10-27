@@ -1,1 +1,10 @@
-//Prueba de subida de datos no. 1
+// Usar la base de datos
+use('Biblioteca_Mangas')
+
+db.createCollection('usuarios', {
+    validator:{
+        $jsonSchema: {
+
+        }
+    }
+})
