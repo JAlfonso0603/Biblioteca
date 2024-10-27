@@ -6,7 +6,7 @@ db.createCollection('usuarios', {
         $jsonSchema: {
             bsonType: 'object',
             title: "Objeto de Usuarios de la Biblioteca de Mangas",
-            required: [''],
+            required: ['user', 'password'],
             properties: {
                 nombre: {
                     bsonType: 'string',
@@ -20,7 +20,7 @@ db.createCollection('usuarios', {
                     bsonType: 'string',
                     description: 'Apellido materno del cliente'
                 },
-                usuario: {
+                user: {
                     bsonType: 'string',
                     description: 'Nombre de usuario del cliente'
                 },
@@ -29,8 +29,7 @@ db.createCollection('usuarios', {
                     description: 'Contraseña del cliente'
                 },
                 habilitado: { 
-                    bsonType: 'bool',
-                    default: 'true'
+                    bsonType: 'bool'
                 }
             }
         }
