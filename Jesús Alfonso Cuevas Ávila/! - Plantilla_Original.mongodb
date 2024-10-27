@@ -1,0 +1,38 @@
+// Usar la base de datos
+use('Biblioteca_Mangas')
+
+db.createCollection('usuarios', {
+    validator:{
+        $jsonSchema: {
+            bsonType: 'object',
+            title: "Objeto de Usuarios de la Biblioteca de Mangas",
+            required: [''],
+            properties: {
+                nombre: {
+                    bsonType: 'string',
+                    description: 'Nombre de pila del cliente'
+                },
+                apePat: {
+                    bsonType: 'string',
+                    description: 'Apellido paterno del cliente'
+                },
+                apeMat: {
+                    bsonType: 'string',
+                    description: 'Apellido materno del cliente'
+                },
+                usuario: {
+                    bsonType: 'string',
+                    description: 'Nombre de usuario del cliente'
+                },
+                password: {
+                    bsonType: 'string',
+                    description: 'Contraseña del cliente'
+                },
+                habilitado: { 
+                    bsonType: 'bool',
+                    default: 'true'
+                }
+            }
+        }
+    }
+})
