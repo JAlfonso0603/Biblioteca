@@ -13,3 +13,5 @@ archivos:
 
 3.- La tabla será migrada el formato de MongoDB en su totalidad, pero la modificación será marcada con un 
     comentario para facilitar su localización.
+
+4.- La tabla utilizada será: 
