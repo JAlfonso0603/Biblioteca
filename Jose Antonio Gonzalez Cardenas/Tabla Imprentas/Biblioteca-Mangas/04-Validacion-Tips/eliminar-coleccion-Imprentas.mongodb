@@ -1,5 +1,0 @@
-//Usar la Base de Datos
-use("Biblioteca-Mangas")
-
-//Eliminar la coleccion de Imprentas
-db.Imprentas.drop()
