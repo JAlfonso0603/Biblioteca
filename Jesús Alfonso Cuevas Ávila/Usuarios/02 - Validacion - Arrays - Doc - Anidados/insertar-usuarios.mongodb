@@ -3,9 +3,11 @@ use('Biblioteca_Mangas')
 
 // Insertar un documento en la colección de usuarios.
 db.usuarios.insertOne({
-    nombre: '',
-    apePat: '',
-    apeMat: '',
+    nombre: {
+        pila: '',
+        apePat: '',
+        apeMat: ''
+    },
     user: '',
     password: '',
     telefono: [],

@@ -10,16 +10,23 @@ db.createCollection('usuarios', {
             required: ['user', 'password'],
             properties: {
                 nombre: {
-                    bsonType: 'string',
-                    description: 'Nombre de pila del usuario'
-                },
-                apePat: {
-                    bsonType: 'string',
-                    description: 'Apellido paterno del usuario'
-                },
-                apeMat: {
-                    bsonType: 'string',
-                    description: 'Apellido materno del usuario'
+                    bsonType: 'object',
+                    required: ['pila','apePat','apeMat'],
+                    description: 'Nombre completo del usuario.',
+                    properties: {
+                        pila: {
+                            bsonType: 'string',
+                            description: 'Nombre de pila del usuario'
+                        },
+                        apePat: {
+                            bsonType: 'string',
+                            description: 'Apellido paterno del usuario'
+                        },
+                        apeMat: {
+                            bsonType: 'string',
+                            description: 'Apellido materno del usuario'
+                        },
+                    }
                 },
                 user: {
                     bsonType: 'string',
