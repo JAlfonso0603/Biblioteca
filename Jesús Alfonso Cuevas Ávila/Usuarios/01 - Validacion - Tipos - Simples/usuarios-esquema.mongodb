@@ -1,6 +1,7 @@
-// Usar la base de datos
+// Usar la Base de Datos.
 use('Biblioteca_Mangas')
 
+// Creación de la colección de usuarios.
 db.createCollection('usuarios', {
     validator:{
         $jsonSchema: {

@@ -1,5 +1,0 @@
-// Usar la Base de Datos
-use('Biblioteca_Mangas')
-
-// Eliminar la colección 'Usuarios'
-db.usuarios.drop()
