@@ -30,8 +30,12 @@ db.createCollection('usuarios', {
                     description: 'Contraseña del usuario'
                 },
                 telefono: {
-                    bsonType: 'string',
-                    description: 'Número telefónico del usuario.'
+                    bsonType: 'array',
+                    description: 'Número telefónico del usuario',
+                    items: 
+                    {
+                        bsonType: 'string'
+                    }
                 },
                 habilitado: { 
                     bsonType: 'bool'

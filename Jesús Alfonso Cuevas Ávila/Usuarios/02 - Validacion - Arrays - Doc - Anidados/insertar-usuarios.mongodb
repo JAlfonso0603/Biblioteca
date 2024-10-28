@@ -8,6 +8,6 @@ db.usuarios.insertOne({
     apeMat: '',
     user: '',
     password: '',
-    telefono: '',
+    telefono: [],
     habilitado: true
 })
