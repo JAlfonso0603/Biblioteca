@@ -1,7 +1,5 @@
-// Usar la Base de Datos.
 use('Biblioteca_Mangas')
 
-// Insertar un documento en la colección de usuarios.
 db.usuarios.insertOne({
     nombre: {
         pila: '',

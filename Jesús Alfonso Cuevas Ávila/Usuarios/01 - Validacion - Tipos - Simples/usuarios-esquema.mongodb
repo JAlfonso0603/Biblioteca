@@ -33,6 +33,11 @@ db.createCollection('usuarios', {
                     bsonType: 'string',
                     description: 'Número telefónico del usuario.'
                 },
+                edad: {
+                    bsonType: 'int',
+                    min: 17,
+                    max: 110
+                },
                 habilitado: { 
                     bsonType: 'bool'
                 }
