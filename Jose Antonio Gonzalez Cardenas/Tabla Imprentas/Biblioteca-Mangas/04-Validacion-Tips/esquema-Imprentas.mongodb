@@ -1,0 +1,31 @@
+//Usar la Base de Datos
+use("Biblioteca-Mangas")
+
+//Crear el esquema la validacion de usuarios
+db.createCollection('Imprentas',{
+    validator:{
+        $jsonSchema:{
+            bsonType: 'object',
+            title: 'Validacion del objeto de Imprentas',
+            required:['idImprentas','nombre','direccion','codigo_postal', 'pais', 'telefono', 'email'],
+            properties:{
+                idImprentas: {bsonType: 'int'},
+                nombre:{bsonType: 'string'},
+                direccion:{bsonType: 'string'},
+                codigo_postal: {bsonType: 'string'},
+                pais: {bsonType: 'string'},
+                telefono: {
+                    bsonType: 'array',
+                    minItems: 1,
+                    maxItems: 3,
+                    items: { bsonType: 'string' },
+                    uniqueItems: true
+                },
+                email:{
+                    bsonType: 'string',
+                    pattern: "[A-Za-z\\d.-]{1,}[@][A-Za-z\\d.-]{1,}[.][A-Za-z\\d.-]{1,}$"
+                },
+            }
+        }
+    }
+})
