@@ -1,0 +1,3 @@
+use("Biblioteca");
+
+db.sucursales.find();
