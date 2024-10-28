@@ -1,6 +1,0 @@
-//Usar la Base de Datos
-use("Biblioteca-Mangas")
-
-//Consultar la coleccion de Imprentas
-// SELECT * FROM Imprentas
-db.Imprentas.find()
