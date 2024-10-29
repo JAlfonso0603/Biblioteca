@@ -33,6 +33,7 @@ db.createCollection('usuarios', {
                     bsonType: 'string',
                     description: 'Número telefónico del usuario.'
                 },
+                // La edad utiliza una validacion simple para establecer un mínimo y un máximo
                 edad: {
                     bsonType: 'int',
                     min: 17,

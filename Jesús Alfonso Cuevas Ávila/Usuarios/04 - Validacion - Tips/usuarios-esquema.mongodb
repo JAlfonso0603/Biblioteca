@@ -9,7 +9,6 @@ db.createCollection('usuarios', {
             title: "Objeto de Usuarios de la Biblioteca de Mangas",
             required: ['user', 'password'],
             properties: {
-                // El nombre se actualiza a un objeto anidado para facilitar el manejo de propiedades.
                 nombre: {
                     bsonType: 'object',
                     required: ['pila','apePat','apeMat'],
@@ -31,13 +30,14 @@ db.createCollection('usuarios', {
                 },
                 user: {
                     bsonType: 'string',
-                    description: 'Nombre de usuario del usuario'
+                    description: 'Nombre de usuario del usuario',
+                    pattern: "^[a-zA-Z\\d]+$"
                 },
                 password: {
                     bsonType: 'string',
-                    description: 'Contraseña del usuario'
+                    description: 'Contraseña del usuario',
+                    pattern: "^.{8,20}$"
                 },
-                // Se utiliza un array para el número de teléfono en caso de que se brinde más de uno.
                 telefono: {
                     bsonType: 'array',
                     description: 'Número telefónico del usuario',
@@ -58,3 +58,10 @@ db.createCollection('usuarios', {
         }
     }
 })
+
+// Se crea el índice para evitar que se creen nombres de usuario exactamente iguales
+
+db.usuarios.createIndex(
+    {user: 1}, // Será la llave del índice
+    {unique: true} // No acepta valores duplicados
+)

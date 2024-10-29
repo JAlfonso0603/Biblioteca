@@ -1,15 +1,22 @@
-// Usar la Base de Datos.
-use('Biblioteca_Mangas')
+// Usar la Base de Datos
+use("Biblioteca_Mangas")
 
-// Creación de la colección de usuarios.
-db.createCollection('usuarios', {
-    validator:{
+// Información de los esquemas
+db.getCollectionInfos()
+
+// Modificar el esquema
+db.runCommand({
+    collMod: 'usuarios',
+    validator: {
         $jsonSchema: {
-            bsonType: 'object',
-            title: "Objeto de Usuarios de la Biblioteca de Mangas",
-            required: ['user', 'password'],
+            bsonType: 'object', 
+            title: 'Validación del objeto de usuarios',
+            required: ['usuer', 'password'], 
+
+            //additionalProperties: false, // Todavía no hemos corregido el error en esta parte
+
             properties: {
-                // El nombre se actualiza a un objeto anidado para facilitar el manejo de propiedades.
+                //_id: {bsonType: 'objectId'}, // Ni en esta parte
                 nombre: {
                     bsonType: 'object',
                     required: ['pila','apePat','apeMat'],
@@ -31,13 +38,14 @@ db.createCollection('usuarios', {
                 },
                 user: {
                     bsonType: 'string',
-                    description: 'Nombre de usuario del usuario'
+                    description: 'Nombre de usuario del usuario',
+                    pattern: "^[a-zA-Z\\d]+$"
                 },
                 password: {
                     bsonType: 'string',
-                    description: 'Contraseña del usuario'
+                    description: 'Contraseña del usuario',
+                    pattern: "^.{8,20}$"
                 },
-                // Se utiliza un array para el número de teléfono en caso de que se brinde más de uno.
                 telefono: {
                     bsonType: 'array',
                     description: 'Número telefónico del usuario',
@@ -55,6 +63,8 @@ db.createCollection('usuarios', {
                     bsonType: 'bool'
                 }
             }
+
         }
     }
 })
+

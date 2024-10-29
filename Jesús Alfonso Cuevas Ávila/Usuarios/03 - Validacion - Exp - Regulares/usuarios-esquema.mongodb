@@ -9,7 +9,6 @@ db.createCollection('usuarios', {
             title: "Objeto de Usuarios de la Biblioteca de Mangas",
             required: ['user', 'password'],
             properties: {
-                // El nombre se actualiza a un objeto anidado para facilitar el manejo de propiedades.
                 nombre: {
                     bsonType: 'object',
                     required: ['pila','apePat','apeMat'],
@@ -31,13 +30,16 @@ db.createCollection('usuarios', {
                 },
                 user: {
                     bsonType: 'string',
-                    description: 'Nombre de usuario del usuario'
+                    description: 'Nombre de usuario del usuario',
+                    // La expresión regular admite mayúsculas, minúsculas y dígitos. El "+" representa que estos mencionados pueden encontrarse en cualquier cantidad.
+                    pattern: "^[a-zA-Z\\d]+$"
                 },
                 password: {
                     bsonType: 'string',
-                    description: 'Contraseña del usuario'
+                    description: 'Contraseña del usuario',
+                    // La expresión regular admite todos los caracteres, pero la cadena está limitada entre 8 y 20 caracteres.
+                    pattern: "^.{8,20}$"
                 },
-                // Se utiliza un array para el número de teléfono en caso de que se brinde más de uno.
                 telefono: {
                     bsonType: 'array',
                     description: 'Número telefónico del usuario',
