@@ -3,15 +3,17 @@ Saludos.
 Antes de llevar a cabo la revisión, asegúrese de revisar las siguientes notas sobre la estructura de los
 archivos:
 
-1.- Existe un archivo de extensión ".mongodb" individual para CADA UNA de las validaciones. Es decir, cada 
-    en el archivo actual no estará reflejada la validación vista en un archivo anterior. Favor de verificar
-    cada archivo individualmente.
+1.- Existe un archivo de extensión ".mongodb" individual para CADA UNA de las validaciones, las cuales están marcadas por un comentario
+    en cada archivo.
 
 2.- No llevo ningún registro ni de las tablas, ni de la técnica utilizada por mis compañeros. Esta demostración
     es puramente individual, así que no prometo que se cumpla con una correspondencia entre las formas de
     redacción y/o codificación.
 
-3.- La tabla será migrada el formato de MongoDB en su totalidad, pero la modificación será marcada con un 
-    comentario para facilitar su localización.
+3.- La tabla utilizada será: 'Usuarios'
 
-4.- La tabla utilizada será: 
+4.- Puesto que nunca corregimos en clase el error relacionado a 'additionalProperties' este está reflejado de la misma forma en 
+    el archivo correspondiente.
+
+5.- Los archivos de inserción están vacíos con motivos de prueba personalizada, mas siguen la estructura de la colección desarrollada
+    en cada carpeta (01,02,03,04)
