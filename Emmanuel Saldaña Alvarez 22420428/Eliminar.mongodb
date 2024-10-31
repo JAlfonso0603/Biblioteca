@@ -1,5 +1,0 @@
-//Usar la base de datos
-use("Biblioteca")
-
-//eliminar la coneccion
-db.sucursales.drop()
