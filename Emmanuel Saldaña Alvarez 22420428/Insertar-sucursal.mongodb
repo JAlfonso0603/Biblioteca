@@ -1,8 +1,0 @@
-use("Biblioteca")
-db.sucursales.insertOne({
-    idUbicacion: 101,
-    idDistribuidor: 1,
-    nombre: 'Sucursal Centro',
-    direccion: 'Calle Principal 123',
-    telefono: '1234567890' 
-});
