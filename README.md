@@ -1,0 +1,1 @@
+-- Para la tarea con fecha de entrega 31/10/2024: El documento individual de cada participante está localizado en los directorios propios de cada uno.
