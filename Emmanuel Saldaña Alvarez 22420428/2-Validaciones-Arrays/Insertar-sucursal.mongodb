@@ -1,0 +1,12 @@
+use("Biblioteca")
+db.sucursales.insertOne({
+    idUbicacion: 101,
+    idDistribuidor: 1,
+    nombre: 'Sucursal Centro',
+    direccion: {
+        calle:'Leones altos',
+        ciudad:'Zamora',
+        copo:'59940'
+    },
+    telefono: '1234567890' 
+});

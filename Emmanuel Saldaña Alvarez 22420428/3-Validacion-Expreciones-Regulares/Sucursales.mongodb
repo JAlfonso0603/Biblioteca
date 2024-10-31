@@ -1,0 +1,35 @@
+use("Biblioteca")
+db.createCollection('sucursales', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['idUbicacion', 'idDistribuidor', 'nombre', 'direccion', 'telefono'],
+            properties: {
+                idUbicacion: { 
+                    bsonType: 'int' 
+                },
+                idDistribuidor: { 
+                    bsonType: 'int' 
+                },
+                nombre: { 
+                    bsonType: 'string', 
+                    maxLength: 30 
+                },
+                direccion: { 
+                    bsonType: 'object',
+                    required:['calle','ciudad','cp'],
+                    properties:{
+                        calle:{bsonType:'string'},
+                        ciudad:{bsonType:'string'},
+                        cp:{bsonType:'string'}
+                    }
+                },
+                telefono: {
+                    bsonType: 'string',
+                    pattern: "^[0-9]+$", 
+                    maxLength: 15,
+                }
+            }
+        }
+    }
+});
