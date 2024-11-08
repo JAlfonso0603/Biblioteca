@@ -4,6 +4,9 @@
 -- Equipo: Jose Antonio Gonzalez Cardenas | Emmanuel Saldaña Alvarez | Jesus Alfonso Cuevas Avila
 
 -- ----------------------------------------------------------------------------------------------------
+-- Dropear base de datos
+
+DROP DATABASE Biblioteca_Mangas;
 
 -- Crear la Base de Datos
 IF DB_ID('Biblioteca_Mangas') IS NULL
