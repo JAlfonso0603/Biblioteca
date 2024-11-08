@@ -91,6 +91,13 @@ CREATE TABLE Editoriales (
 );
 
 
+-- Crear la tabla Permisos
+IF OBJECT_ID('Permisos', 'U') IS NULL
+CREATE TABLE Permisos (
+    idPermiso INT IDENTITY (1,1) PRIMARY KEY,
+	nombrePermiso NVARCHAR NOT NULL,
+);
+
 -- Crear la tabla Grupos
 IF OBJECT_ID('Grupos', 'U') IS NULL
 CREATE TABLE Grupos (
@@ -169,16 +176,8 @@ CREATE TABLE Traductores (
 	idTraductor INT IDENTITY(1,1) PRIMARY KEY,
 	idEditorial INT NOT NULL,
 	nombreTrad NVARCHAR(50) NOT NULL,
-	idiomas ARRAY,
+	idiomas NVARCHAR(100) NOT NULL,
 	CONSTRAINT FK_Traductores_Editoriales FOREIGN KEY (idEditorial) REFERENCES Editoriales(idEditorial)
-);
-
-
--- Crear la tabla Permisos
-IF OBJECT_ID('Permisos', 'U') IS NULL
-CREATE TABLE Permisos (
-    idPermiso INT IDENTITY (1,1) PRIMARY KEY,
-	nombrePermiso NVARCHAR NOT NULL,
 );
 
 -- Crear la tabla UbicacionFisica
