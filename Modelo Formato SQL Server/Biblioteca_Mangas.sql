@@ -15,16 +15,35 @@ CREATE DATABASE Biblioteca_Mangas;
 -- Usar la Base de Datos
 USE Biblioteca_Mangas;
 
+-- Crear la tabla Permisos
+IF OBJECT_ID('Permisos', 'U') IS NULL
+CREATE TABLE Permisos (
+    idPermiso INT IDENTITY (1,1) PRIMARY KEY,
+	nombrePermiso NVARCHAR(30) NOT NULL,
+);
+
+-- Crear la tabla Grupos
+IF OBJECT_ID('Grupos', 'U') IS NULL
+CREATE TABLE Grupos (
+	idGrupo INT IDENTITY(1,1) PRIMARY KEY,
+	idPermiso INT NOT NULL,
+	nombreGrupo NVARCHAR(30) NOT NULL,
+	habilitado BIT NOT NULL DEFAULT 1
+	CONSTRAINT FK_Permisos_Grupos FOREIGN KEY (idPermiso) REFERENCES Permisos(idPermiso),
+);
+
 -- Crear la tabla Usuarios
 IF OBJECT_ID('Usuarios', 'U') IS NULL
 CREATE TABLE Usuarios (
     idUsuario INT IDENTITY(1,1) PRIMARY KEY,
+	idGrupo INT NOT NULL,
 	nombrePila NVARCHAR(30) NOT NULL,
     apePat NVARCHAR(20) NOT NULL,
     apeMat NVARCHAR(20) NULL,
     usuario NVARCHAR(30) NOT NULL,
     password NVARCHAR(15) NOT NULL,
 	habilitado INT NOT NULL DEFAULT 1
+	CONSTRAINT FK_Grupos_Usuarios FOREIGN KEY (idGrupo) REFERENCES Grupos(idGrupo),
 );
 
 -- Crear la tabla Imprentas
@@ -89,25 +108,6 @@ CREATE TABLE Editoriales (
 	nombreEdit NVARCHAR(100) NOT NULL,
 	paisEdit NVARCHAR(50) NOT NULL
 );
-
-
--- Crear la tabla Permisos
-IF OBJECT_ID('Permisos', 'U') IS NULL
-CREATE TABLE Permisos (
-    idPermiso INT IDENTITY (1,1) PRIMARY KEY,
-	nombrePermiso NVARCHAR NOT NULL,
-);
-
--- Crear la tabla Grupos
-IF OBJECT_ID('Grupos', 'U') IS NULL
-CREATE TABLE Grupos (
-	idGrupo INT IDENTITY(1,1) PRIMARY KEY,
-	idPermiso INT NOT NULL,
-	nombreGrupo NVARCHAR(30) NOT NULL,
-	habilitado BIT NOT NULL DEFAULT 1
-	CONSTRAINT FK_Permisos_Grupos FOREIGN KEY (idPermiso) REFERENCES Permisos(idPermiso)
-);
-
 
 -- Crear la tabla Lotes
 IF OBJECT_ID('Lotes', 'U') IS NULL
